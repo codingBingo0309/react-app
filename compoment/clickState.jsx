@@ -12,7 +12,7 @@ var ClickButton = React.createClass({
         })
     } ,
     render : function () {
-        var text = this.state.liked ? 'oh!' : 'no!';
+        var text = this.state.liked ? 'oh fuck!' : 'no shit!';
         return (
                 <h4 onClick={this.clickButton}>{text}</h4>
         );
