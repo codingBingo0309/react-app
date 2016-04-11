@@ -11,6 +11,7 @@ var ClickButton = React.createClass({
             liked:!this.state.liked
         })
     } ,
+
     render : function () {
         var text = this.state.liked ? 'oh fuck!' : 'no shit!';
         return (
