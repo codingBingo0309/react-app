@@ -1,15 +1,15 @@
 import React from 'react';
 
 var StateButoon = React.createClass({
-    getInitialState : function(){
+    getInitialState : ()->{
         return {
             data:0
         };
     },
-    setNewNumber : function(){
+    setNewNumber : ()->{
         this.setState({data:this.state.data + 1});
     },
-    render : function(){
+    render : ()->{
         return (
             <div>
                 <button onClick = {this.setNewNumber}>INSERT</button>
