@@ -1,8 +1,8 @@
-import React from 'react';
+import React, {Component} from 'react';
 import ReactSwipe from 'react-swipe';
-import { Router, Route, Link, browserHistory} from 'react-router'
 
-module.exports = class Touch extends React.Component {
+
+module.exports = class Touch extends Component {
 
     /*
     *
@@ -42,6 +42,8 @@ module.exports = class Touch extends React.Component {
                     <button type="button" onClick={this.prev.bind(this)}>Prev</button>
                     <button type="button" onClick={this.next.bind(this)}>Next</button>
                 </div>
+
+
             </div>
         )
     }

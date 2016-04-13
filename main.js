@@ -1,24 +1,42 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React, { Component } from 'react'
+import { render } from 'react-dom'
+import { Router, Route,  Link,  browserHistory } from 'react-router'
 
-import App from './App.jsx';
-//import Math from './compoment/math.jsx';
-//import CamelCase from './compoment/camelCase.jsx';
-//import Mutiple from './compoment/mutiple.jsx';
-//import ClickButton from './compoment/clickState.jsx';
-//import Link from './compoment/link/link.jsx';
-//import ReactAjax from './compoment/reactAjax/reactAjax.jsx';
-import TouchDemo from './compoment/touchDemo/touchDemo.jsx';
 
-//require ('es5-shim');
-//require ('es5-shim/es5-sham');
-//require ('console-polyfill');
+import About from './compoment/about.jsx'
+import Inbox from './compoment/inbox.jsx'
+import Touch from './compoment/touchDemo/touchDemo.jsx'
+import Carousel from './compoment/carouselDemo/carousel.jsx'
 
-ReactDOM.render(<App />, document.getElementById('app'));
-//ReactDOM.render(<Math />, document.getElementById('math'));
-//ReactDOM.render(<CamelCase />, document.getElementById('camelCase'));
-//ReactDOM.render(<Mutiple name = 'cb' sex='man'/>, document.getElementById('mutiple'));
-//ReactDOM.render(<ClickButton />, document.getElementById('clickState'));
-//ReactDOM.render(<Link />, document.getElementById('link'));
-//ReactDOM.render(<ReactAjax source="https://api.github.com/users/octocat/gists"/>, document.getElementById('reactAjax'));
-ReactDOM.render(<TouchDemo />, document.getElementById('touchDemo'));
+const ACTIVE = { color: 'red' }
+
+class App extends Component {
+    render() {
+        return (
+            <div>
+                <h1>APP!</h1>
+                <ul>
+                    <li><Link      to="/"           activeStyle={ACTIVE}>/</Link></li>
+                    <li><Link      to="/about"      activeStyle={ACTIVE}>/about</Link></li>
+                    <li><Link      to="/inbox"      activeStyle={ACTIVE}>/inbox</Link></li>
+                    <li><Link      to="/touchDemo"      activeStyle={ACTIVE}>/touchDemo</Link></li>
+                    <li><Link      to="/carouselDemo"      activeStyle={ACTIVE}>/carouselDemo</Link></li>
+                </ul>
+
+                {this.props.children}
+            </div>
+        )
+    }
+}
+
+
+render((
+    <Router history={browserHistory}>
+        <Route path="/" component={App}>
+            <Route path="/about" component={About}/>
+            <Route path="/inbox" component={Inbox}/>
+            <Route path="/touchDemo" component={Touch}/>
+            <Route path="/carouselDemo" component={Carousel}/>
+        </Route>
+    </Router>
+), document.getElementById('app'))
