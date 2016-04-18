@@ -1,6 +1,6 @@
-import React from 'react';
+import React, {Component} from 'react';
 
-module.exports = class About extends React.Component {
+module.exports = class About extends Component {
     render () {
         return (
             <h2>
